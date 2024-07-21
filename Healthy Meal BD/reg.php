@@ -34,7 +34,7 @@
 <!--==========================================MENU BAR=============================================-->
 <nav class="main-menu">
 		<ul>
-			<li class="anything"><a href="index.html">HOME</a></li>
+			<li><a href="index.html">HOME</a></li>
 			<li><a href="pricing.php">Pricing</a></li>
 			<li><a href="#">Meal Plans</a>
 				<ul>
@@ -54,7 +54,7 @@
 				</ul>
 			</li>
 			<li><a href="login.php">Login</a></li>
-			<li><a href="reg.php">Sign Up</a></li>
+			<li class="anything"><a href="reg.php">Sign Up</a></li>
 			<li><a href="admin.php">Admin</a></li>
 			<li><a href="api.html">Find Us On Google Map</a></li>
 		</ul>
@@ -98,7 +98,7 @@
        if(isset($_POST['signup'])) {  
        
            $email = mysqli_real_escape_string($conn, $_POST['email']);
-           $pass = mysqli_real_escape_string($conn, $_POST['password']);
+           $password = mysqli_real_escape_string($conn, $_POST['password']);
            $re_pass = mysqli_real_escape_string($conn, $_POST['re_pass']);
        
            
@@ -107,17 +107,17 @@
            $count = mysqli_num_rows($result);
        
            if($count == 1) {
-               echo '<a href="login.php"  style="color:red">Account already exists</a>';
+               echo '<a href="login.php" style="color:red; padding-top: 50px;">Account already exists</a>';
            } else {
-               if($pass == $re_pass) {
+               if($password == $re_pass) {
                    $sql = "INSERT INTO `signup`(`email`, `password`) VALUES ('$email', '$password')";
                    if (mysqli_query($conn, $sql)) {
-                       echo '<h5>Registration Complete</h5>';
+                       echo '<h5 style=" padding-top: 10px;">Registration Complete</h5>';
                    } else {
                        echo '<h2>Error: ' . mysqli_error($conn) . '</h2>';
                    }
                } else {
-                   echo '<h2>Passwords do not match</h2>';
+                   echo '<h5 style="color:red; padding-top: 10px;">Passwords do not match</h5>';
                }
            }
        
