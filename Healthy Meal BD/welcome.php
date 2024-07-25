@@ -1,5 +1,7 @@
-	    <?php 
+<?php 
+    session_start();
     include_once("database_connection/config.php");
+
 	
 ?>
 
@@ -43,97 +45,32 @@
 					<li><a href="#">Premium</a></li>
 				</ul>
 			</li>
-			<li><a href="login.php">Login</a></li>
-			<li class="anything"><a href="reg.php">Sign Up</a></li>
+			<li class="anything"><a href="login.php">Login</a></li>
+			<li><a href="reg.php">Sign Up</a></li>
 			<li><a href="admin.php">Admin</a></li>
 			<li><a href="api.html">Find Us On Google Map</a></li>
 		</ul>
 	</nav>
-<!--==================================Sign up form================================================-->	
 		<div class="main">
+
+<!--==================================Sign up form================================================-->
 			<section class="signup">
 				<div class="container">
 					<div class="signup-content">
 						<div class="signup-form">
-							<h2 class="form-title">Sign up</h2>
-							<form method="POST" class="register-form" id="register-form">
-							<div class="form-group">
-				
-                </div>
-                     <div class="form-group">
-                            <label for="email"><i class="zmdi zmdi-email"></i></label>
-                             <input type="text" name="email" id="email" placeholder="Your User Name" required="required"/>
-                     </div>
-                            <div class="form-group">
-                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="password" placeholder="Password" required="required"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" required="required"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
-                            <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
-                            </div>
-                        </form>
-                        <!-- PHP CODE---->
-
-		<?php
-						   
-       if(isset($_POST['signup'])) {  
-       
-           $email = mysqli_real_escape_string($conn, $_POST['email']);
-           $password = mysqli_real_escape_string($conn, $_POST['password']);
-           $re_pass = mysqli_real_escape_string($conn, $_POST['re_pass']);
-       
-           
-           $sql = "SELECT * FROM `signup` WHERE `email` = '$email'";
-           $result = mysqli_query($conn, $sql);          
-           $count = mysqli_num_rows($result);
-       
-           if($count == 1) {
-            echo '<a href="login.php" style="color:red; padding-top: 50px;">Account already exists</a>';
-           } else {
-               if($password == $re_pass) {
-                   $sql = "INSERT INTO `signup`(`email`, `password`) VALUES ('$email', '$password')";
-                   if (mysqli_query($conn, $sql)) {
-                      echo '<h5 style=" padding-top: 10px;">Registration Complete</h5>';
-					  
-                   } else {
-                       echo '<h2>Error: ' . mysqli_error($conn) . '</h2>'; 
-                   }
-               } else {
-                       echo '<h5 style="color:red; padding-top: 10px;">Passwords do not match</h5>'; 
-               }
-           }
-       
-           mysqli_close($conn);
-       }
-       
-	   
-      
-    ?> 
-
-                    </div>
-                    <div class="signup-image">
-                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="login.php" class="signup-image-link">I am already member</a>
-                    </div>
-                </div>
-            </div>
+							<h4 class="form-title">Welcome to Healthy Meal BD <?php echo $_SESSION['login_user']?></h4>
+                  
         </section>
+
+
 
 <!--======================================================= footer=================================================================== ===-->
 <footer class="text-white text-center text-lg-start bg-dark">
 	  
 	  <div class="container p-4">
-	
+		
 		<div class="row mt-4">
-		  
+		 
 		  <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
 			<h5 class="text-uppercase mb-4">About company</h5>
   
@@ -173,7 +110,7 @@
 			  </li>
 			</ul>
 		  </div>
-		  
+		
 		  <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
 			<h5 class="text-uppercase mb-4">Opening hours</h5>
   
@@ -194,18 +131,18 @@
 			  </tbody>
 			</table>
 		  </div>
-		  
-		</div>
 		
+		</div>
+	
 	  </div>
-	  
+	
 	  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2), padding-top: 10px;">
 		© 2020 Copyright:
 		<a class="text-white" href="https://HealthymealBD.com/">HealthymealBD.com</a>
 	  </div>
-	  
+	
 	</footer>
-  
+
 
 </body>
 </html>
