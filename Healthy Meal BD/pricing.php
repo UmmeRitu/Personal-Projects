@@ -21,7 +21,7 @@ $result = mysqli_query($conn, $sql);
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
 		<link rel="stylesheet" type="text/css" href="util.css">
 		<link rel="stylesheet" type="text/css" href="extra.css" media="all" />
-		<link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css"> 
 <!--===============================================================================================-->
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -49,9 +49,9 @@ $result = mysqli_query($conn, $sql);
 
 
 	<div class="container">
-        <div class="row">
+        <div class="row"> 
         <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
-        </div>
+        </div> 
     </div>
 
       <?php  
@@ -60,11 +60,11 @@ $result = mysqli_query($conn, $sql);
 	
  
         echo'
-        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter breakfast" style="border: 0px solid gray; margin:4px">
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-6 col-xs-12 filter breakfast" style="border: 0px solid gray; margin:4px">
         <img  height="300" width="500" src="data:image/png;base64,'.base64_encode($res['pic']).'" alt="Card image">
         <h6> Name : '.$res['name'].' </h6>                
-        <h6> Price : '.$res['price'].' </h6>
-        <h6> des : '.$res['des'].' </h6>
+        <h6> Price : '.$res['price'].' BDT </h6>
+        <h6> Description : '.$res['des'].'  </h6>
         </div>';
 
     }    
@@ -82,12 +82,13 @@ $result = mysqli_query($conn, $sql);
 	</ul>
 	
 <!--======================================================= footer=================================================================== ===-->
+
 <footer class="text-white text-center text-lg-start bg-dark">
 	  
 	  <div class="container p-4">
-	
+		
 		<div class="row mt-4">
-		  
+		 
 		  <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
 			<h5 class="text-uppercase mb-4">About company</h5>
   
@@ -127,7 +128,7 @@ $result = mysqli_query($conn, $sql);
 			  </li>
 			</ul>
 		  </div>
-		  
+		
 		  <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
 			<h5 class="text-uppercase mb-4">Opening hours</h5>
   
@@ -148,18 +149,18 @@ $result = mysqli_query($conn, $sql);
 			  </tbody>
 			</table>
 		  </div>
-		  
-		</div>
 		
+		</div>
+	
 	  </div>
-	  
+	
 	  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2), padding-top: 10px;">
 		© 2020 Copyright:
 		<a class="text-white" href="https://HealthymealBD.com/">HealthymealBD.com</a>
 	  </div>
-	  
+	
 	</footer>
-  
+
 
 </body>
 </html>

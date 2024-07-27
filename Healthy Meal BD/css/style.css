@@ -244,3 +244,54 @@ footer .footer-widget h3 {
 .red {
     color: red !important;
 }
+
+.gallery_product {
+    position: relative;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery_product:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.gallery_product img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.gallery_product h6 {
+    margin: 10px;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    .gallery_product {
+        width: 30%;
+        margin: 1.5%;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .gallery_product {
+        width: 45%;
+        margin: 2.5%;
+    }
+}
+
+@media (max-width: 767px) {
+    .gallery_product {
+        width: 100%;
+        margin: 5% 0;
+    }
+}
