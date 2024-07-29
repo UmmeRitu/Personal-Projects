@@ -18,10 +18,6 @@ A Google Chrome plugin that allows users to take screenshots of their screen by 
 
 1. **Clone or Download the Repository:**
 
-    ```bash
-    git clone 
-    ```
-
 2. **Load the Extension in Chrome:**
 
     - Open Google Chrome and navigate to `chrome://extensions/`.
